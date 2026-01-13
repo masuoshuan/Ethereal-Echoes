@@ -1,0 +1,7 @@
+{
+  "name": "Ethereal Echoes (灵境·回响)",
+  "description": "A spiritual sanctuary for your digital remains and lost memories. Interact through rituals, whispers, and emotional resonance.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

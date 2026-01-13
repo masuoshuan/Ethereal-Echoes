@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ethereal Echoes - 灵境·回响</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@200;300;400;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-amber: #f59e0b;
+            --color-void: #050505;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-void);
+            color: #e0e0e0;
+            font-family: 'Noto Serif SC', serif;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+        .font-ritual { font-family: 'Ma Shan Zheng', cursive; }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* 极锐利锥形手电筒光束 */
+        @keyframes conicalBreath {
+            0% { opacity: 0.3; transform: translateX(-50%) scaleX(1); }
+            50% { opacity: 0.5; transform: translateX(-50%) scaleX(1.05); }
+            100% { opacity: 0.3; transform: translateX(-50%) scaleX(1); }
+        }
+
+        .conical-beam-container {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 5;
+            overflow: hidden;
+            mix-blend-mode: screen;
+        }
+
+        .divine-beam-cone {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 120vh;
+            background: linear-gradient(to bottom, 
+                rgba(245, 158, 11, 0.8) 0%, 
+                rgba(245, 158, 11, 0.1) 70%, 
+                transparent 100%);
+            /* 顶部绝对闭合的尖锥 */
+            clip-path: polygon(50% 0%, 50% 0%, 100% 100%, 0% 100%);
+            filter: blur(25px);
+            animation: conicalBreath 12s ease-in-out infinite;
+        }
+
+        .divine-sparkle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: sparkleFall 8s linear infinite;
+        }
+        @keyframes sparkleFall {
+            0% { transform: translateY(-10vh) scale(0); opacity: 0; }
+            20% { opacity: 1; scale(1); }
+            100% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+        }
+
+        ::-webkit-scrollbar { display: none; }
+        * { scrollbar-width: none; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "framer-motion": "https://esm.sh/framer-motion@^11.11.17"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
